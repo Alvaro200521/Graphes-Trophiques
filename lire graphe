@@ -1,0 +1,56 @@
+Graphe* lire_graphe(char* nomFichier) {
+    Graphe* graphe;
+    FILE* ifs = fopen(nomFichier, "r");
+    int ordre, taille, s1, s2, poids;
+
+    if (!ifs) {
+        printf("Erreur de lecture du fichier\n");
+        exit(-1);
+    }
+
+    // Lire l'ordre du graphe
+    fscanf(ifs, "%d", &ordre);
+    graphe = CreerGraphe(ordre);
+
+    // Ignorer les sommets
+    for (int i = 0; i < ordre; i++) {
+        int sommet;
+        fscanf(ifs, "%d", &sommet); // Lire les sommets sans les utiliser directement ici
+    }
+
+    // Lire le nombre d'arêtes
+    fscanf(ifs, "%d", &taille);
+    graphe->taille = taille;
+
+    // Lire les sommets et le poid des arretes
+    for (int i = 0; i < taille; i++) {
+        fscanf(ifs, "%s %s %d", &s1, &s2, &poids);
+        AjouterArete(graphe, s1, s2, poids);
+    }
+
+    fclose(ifs);
+    return graphe;
+}
+
+
+
+// Fonction pour trouver le sommet avec la distance minimale qui n'a pas encore été traité
+int minDistance(int dist[], bool sptSet[], int ordre) {
+    int min = INT_MAX, min_index;
+
+    for (int v = 0; v < ordre; v++)
+        if (!sptSet[v] && dist[v] <= min)
+            min = dist[v], min_index = v;
+
+    return min_index;
+}
+
+// But: afficher le chemin de source à un sommet donnee
+void afficherChemin(int predecesseur[], int j) {
+    if (predecesseur[j] == -1) {
+        printf("%d ", j);
+        return;
+    }
+    afficherChemin(predecesseur, predecesseur[j]);
+    printf("%d ", j);
+}
