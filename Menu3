@@ -1,0 +1,23 @@
+//Code pour le menu
+
+int main(void) {
+    int choix, reseautrophique;
+    Graphe * g;
+    char nom_fichier[50];
+    
+    printf("Bonjour, veuillez choisir une option:\n");
+    printf("1. Charger un Reseau Trophique\n");
+    printf("2. xo\n");
+    printf("3. xo\n");
+    printf("Choix: ");
+    scanf("%d", &choix);  // Correction de &d en %d
+    if (choix == 1) {
+        printf("entrer le nom du fichier du labyrinthe:");
+        gets(nom_fichier);
+
+        g = lire_graphe(nom_fichier);
+    } else {
+        printf("Choix invalide.\n");
+    }
+    return 0;
+}
