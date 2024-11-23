@@ -1,0 +1,22 @@
+///Format du fichier:
+9
+0
+Espece A
+Espece B
+Espece C
+Espece D
+Espece E
+Espece F
+Espece G
+Espece H
+Espece I
+A B 16
+B C 1
+B D 13
+C E 10
+D E 12
+E I  7
+E G 2
+F G 9
+G I 8
+H I 14
