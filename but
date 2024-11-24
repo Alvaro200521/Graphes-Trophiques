@@ -1,0 +1,3 @@
+void but(){
+  printf("bonjour, le but de ce projet est de vous aider a comprendre les réseaux trophique grace a un aspect de theorie des graphes);
+}
