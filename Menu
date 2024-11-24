@@ -5,7 +5,7 @@ int main(void) {
     Graphe * g;
     char nom_fichier[50];
     
-    printf("Bonjour, veuillez choisir une option:\n");
+    printf("Bonjour, veuillez choisir des options:\n");
     printf("1. Charger un Reseau Trophique\n");
     printf("2. xo\n");
     printf("3. xo\n");
